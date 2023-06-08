@@ -4,16 +4,16 @@ const CustomerList = (props: any) => {
   const items = props
   return (
     <div>              
-      <table>
+      <table className="table table-striped">
         <thead>
         <tr>
-                 <th>First Name</th>
-                 <th>Last Name</th>
-                 <th>Address</th>
-                 <th>City</th>
-                 <th>State</th>
-                 <th>Order Total</th>
-                 <th></th>
+                 <th scope="col">First Name</th>
+                 <th scope="col">Last Name</th>
+                 <th scope="col">Address</th>
+                 <th scope="col">City</th>
+                 <th scope="col">State</th>
+                 <th scope="col">Order Total</th>
+                 <th scope="col"></th>
         </tr>
         </thead>
         <tbody>  

@@ -22,33 +22,26 @@ console.log(items);
         fetchData()
       }, [])
 
-    const itemSearchHandler = () => {
-        const valueSearch = inputSearchRef.current.value.toLowerCase();
-        const updateList = items
-          .slice()
-          .filter((item: any) => item.firstName.toLowerCase().includes(valueSearch)
-          || item.lastName.toLowerCase().includes(valueSearch)
-          );
-
-        setFilteredItems(updateList);
-    };
-
-    const handleKeyPress = (event: any) => {
+    const handleKeyPress = () => {
     
-        if (event.key === "Enter") {
-          itemSearchHandler();
-        }
+      const valueSearch = inputSearchRef.current.value.toLowerCase();
+      const updateList = items
+        .slice()
+        .filter((item: any) => item.firstName.toLowerCase().includes(valueSearch)
+        || item.lastName.toLowerCase().includes(valueSearch)
+        );
+
+      setFilteredItems(updateList);
     };
 
     return(
       <>      
       <div>
-        <input type="text" placeholder="Search" 
-        ref={inputSearchRef} onKeyDown={handleKeyPress}
+        <input className="col-6"
+        type="text" 
+        placeholder="Search" 
+        ref={inputSearchRef} onChange={handleKeyPress}
         />
-        <button className="btn btn-outline-success" type="submit"
-        onClick={itemSearchHandler} 
-        >Search</button>
       </div>   
       <CustomerList items={filteredItems}/> 
     </>      
