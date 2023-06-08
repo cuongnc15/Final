@@ -1,24 +1,27 @@
-import DetailCusomer from "./DetailCusomer";
+import DetailCusomer from "./CusomerItem";
 
 const CustomerList = (props: any) => {
   const items = props
   return (
-    <div>              
-      <table className="table table-striped">
+    <div className="container">              
+      <table className="table table-striped"
+        style={{padding: "30px 50px"}}
+      >
         <thead>
-        <tr>
-                 <th scope="col">First Name</th>
-                 <th scope="col">Last Name</th>
-                 <th scope="col">Address</th>
-                 <th scope="col">City</th>
-                 <th scope="col">State</th>
-                 <th scope="col">Order Total</th>
-                 <th scope="col"></th>
-        </tr>
+          <tr style={{ textAlign: "left" }}>
+                 <th  scope="col"></th>
+                 <th>First Name</th>
+                 <th>Last Name</th>
+                 <th>Address</th>
+                 <th>City</th>
+                 <th>State</th>
+                 <th>Order Total</th>
+                 <th></th>
+          </tr>
         </thead>
         <tbody>  
-    {        
-        props.items.map((item: any, idx: number) => (                                                                        
+          {        
+           props.items.map((item: any, idx: number) => (                                                                        
                 <DetailCusomer
                 key = {idx}
                 id = {item.id}
@@ -27,11 +30,13 @@ const CustomerList = (props: any) => {
                 address = {item.address}
                 city = {item.city}
                 state = {item.state}
+                gender = {item.gender}
+                orders = {item.orders}
                 />                                                                
             ))
-    }    
-    </tbody>
-    </table>
+          }    
+        </tbody>
+      </table>
     </div>
 );};
 

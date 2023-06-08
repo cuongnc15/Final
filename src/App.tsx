@@ -1,26 +1,24 @@
 import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import CustomersPage from './page/CustomersPage';
-
 import OrdersPage from './page/OrdersPage';
-import store from './store/Store';
-import { Provider } from 'react-redux';
-import DetailPage from './page/DetailPage';
+
 import Header from './component/Header';
+import InfoPage from './page/InfoPage';
 
 
 function App() {
   return (
-    <Provider store={store}>
+    <>
     <Header/>
-    <Routes>
+    <Routes >
     <Route path='/' element={ <Navigate to="/customers" /> }/>
     <Route path="/customers" element={<CustomersPage />} />
-    <Route path="customers/:Id/details" element={<DetailPage />} />
-    <Route path="customers/:Id/orders" element={<OrdersPage />} />
+    <Route path="customers/:id/details" element={<InfoPage />} />
+    <Route path="customers/:id/orders" element={<OrdersPage />} />
     
   </Routes>
-  </Provider>
+  </>
   );
 }
 

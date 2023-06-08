@@ -33,11 +33,11 @@ const CustomerOrder = () => {
             {customerOrder?.firstName.slice(1)} {customerOrder?.lastName}
           </h3>
           <div style={{ borderBottom: "1px solid gray", width: "50%" }}>
-            {customerOrder?.orders?.map((order: any, i: number) => {
+            {customerOrder?.orders?.map((order: any, idx: number) => {
               return (
                 <>
-                  <div className="order-item" style={{ display: "flex" }}>
-                    <div className="name" style={{ width: "150px" }}>
+                  <div key={idx} style={{ display: "flex" }}>
+                    <div style={{ width: "150px" }}>
                       {order.productName}
                     </div>
                     <p>${order.itemCost}</p>
@@ -50,7 +50,8 @@ const CustomerOrder = () => {
             $
             {customerOrder?.orders
               ?.reduce((acc: any, order: any) => acc + order.itemCost, 0)
-              .toFixed(2)}
+              .toFixed(2)
+            }
           </div>
         </>
       ) : (

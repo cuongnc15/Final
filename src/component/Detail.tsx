@@ -26,7 +26,7 @@ const CustomerDetail = () => {
       .catch((err) => console.log(err));
     
     }, [params]);
-console.log(customerDetail);
+
   return (
     <div>
       {customerDetail?.gender === "male" ? (

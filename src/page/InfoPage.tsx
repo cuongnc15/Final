@@ -1,7 +1,7 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-import Orders from "../component/Orders";
+import Detail from "../component/Detail";
 
 const CustomerInfo = () => {
   const params = useParams();
@@ -12,7 +12,7 @@ const CustomerInfo = () => {
       <div className="container" style={{ marginTop: 30 }}>
         <h2>Customer Infomation</h2>
         <Tabs 
-          defaultActiveKey="order"
+          defaultActiveKey="info"
           id="uncontrolled-tab-example"
           style={{ display: "flex", justifyContent: "left"}}>
             <Tab
@@ -34,9 +34,9 @@ const CustomerInfo = () => {
             >
             </Tab>  
         </Tabs>                     
-      <Orders/>                 
+      <Detail/>                 
       </div>
-
+      
       <div style={{ padding: 50 }}>
         <NavLink to="/customers">View All Customer</NavLink>
       </div>

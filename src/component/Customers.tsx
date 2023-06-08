@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { NavLink } from "react-router-dom"
 import CustomerList from "./CustomerList"
 
 function Customers() {
@@ -17,7 +16,7 @@ function Customers() {
           setFilteredItems(data)
         })
     }    
-console.log(items);
+
     useEffect(() => {
         fetchData()
       }, [])
@@ -33,17 +32,20 @@ console.log(items);
 
       setFilteredItems(updateList);
     };
-
+    
     return(
-      <>      
-      <div>
-        <input className="col-6"
-        type="text" 
-        placeholder="Search" 
-        ref={inputSearchRef} onChange={handleKeyPress}
+      <>
+      <div className="container">    
+        <div className="col-2" style={{margin: "15px"}}>
+          <label className="form-label">Filter</label>
+          <input className="form-control"
+            type="text" 
+            placeholder="Search" 
+            ref={inputSearchRef} onChange={handleKeyPress}
         />
-      </div>   
+        </div>   
       <CustomerList items={filteredItems}/> 
+      </div>  
     </>      
     );
     
