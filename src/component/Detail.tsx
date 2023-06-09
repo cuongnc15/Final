@@ -29,20 +29,20 @@ const CustomerDetail = () => {
 
   return (
     <div>
-      {customerDetail?.gender === "male" ? (
+      {customerDetail.gender === "male" ? (
         <img src={male} style={{ width: "100px", height: "100px" }} />
       ) : (
         <img src={female} style={{ width: "100px", height: "100px" }} />
       )}
 
       <h3>
-        {customerDetail?.firstName.charAt(0).toUpperCase()}
-        {customerDetail?.firstName.slice(1)} {customerDetail?.lastName}
+        {customerDetail.firstName.charAt(0).toUpperCase()}
+        {customerDetail.firstName.slice(1)} {customerDetail.lastName}
       </h3>
       <div style={{ paddingTop: "30px" }}>
         <p>{customerDetail?.address}</p>
         <p>
-          {customerDetail?.city},{customerDetail?.state?.name}
+          {customerDetail.city},{customerDetail.state.name}
         </p>
       </div>
     </div>

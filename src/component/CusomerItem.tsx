@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import female from "../assets/female.jpg";
 import male from "../assets/male.jpg";
 
-
 function DetailCusomer(props: any) {
     
     return(

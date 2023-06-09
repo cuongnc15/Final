@@ -29,27 +29,24 @@ const CustomerOrder = () => {
       {customerOrder?.orders ? (
         <>
           <h3 style={{ padding: "30px 0 20px 0" }}>
-            Order by {customerOrder?.firstName.charAt(0).toUpperCase()}
-            {customerOrder?.firstName.slice(1)} {customerOrder?.lastName}
+            Order by {customerOrder.firstName.charAt(0).toUpperCase()}
+            {customerOrder.firstName.slice(1)} {customerOrder.lastName}
           </h3>
           <div style={{ borderBottom: "1px solid gray", width: "50%" }}>
-            {customerOrder?.orders?.map((order: any, idx: number) => {
-              return (
-                <>
-                  <div key={idx} style={{ display: "flex" }}>
+            {customerOrder.orders.map((order: any) => 
+              (
+                <div key={order.itemCost} style={{ display: "flex" }}>
                     <div style={{ width: "150px" }}>
                       {order.productName}
                     </div>
                     <p>${order.itemCost}</p>
-                  </div>
-                </>
-              );
-            })}
+                </div>               
+            ))}
           </div>
           <div className="total" style={{ marginLeft: "150px" }}>
             $
-            {customerOrder?.orders
-              ?.reduce((acc: any, order: any) => acc + order.itemCost, 0)
+            {customerOrder.orders
+              .reduce((acc: any, order: any) => acc + order.itemCost, 0)
               .toFixed(2)
             }
           </div>

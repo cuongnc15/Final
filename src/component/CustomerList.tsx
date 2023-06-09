@@ -1,7 +1,7 @@
 import DetailCusomer from "./CusomerItem";
 
 const CustomerList = (props: any) => {
-  const items = props
+  
   return (
     <div className="container">              
       <table className="table table-striped"
