@@ -5,9 +5,12 @@ import OrdersPage from './page/OrdersPage';
 
 import Header from './component/Header';
 import InfoPage from './page/InfoPage';
+import { useEffect } from 'react';
+import userApi from './api/userApi';
 
 
 function App() {
+  
   return (
     <>
     <Header/>

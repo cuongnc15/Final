@@ -1,6 +1,6 @@
 import Customers from "../component/Customers";
 
-function CustomersPage() {
+function CustomersPage(props: any) {
     return(
       <>
           <Customers/>

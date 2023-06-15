@@ -1,25 +1,19 @@
 import { useEffect, useRef, useState } from "react"
 import CustomerList from "./CustomerList"
+import userApi from "../api/userApi";
 
 function Customers() {
-    const [filteredItems, setFilteredItems] = useState([]);
+    const [filteredItems, setFilteredItems] = useState<any>([]);
     const inputSearchRef = useRef<any>("");
-    const [items, setItems] = useState([]);
-    
-    const fetchData = () => {
-      fetch("http://localhost:3000/api/customers")
-        .then(response => {
-          return response.json()
-        })
-        .then(data => {
-          setItems(data)
-          setFilteredItems(data)
-        })
-    }    
+    const [items, setItems] = useState<any>([]);
 
     useEffect(() => {
-        fetchData()
-      }, [])
+      (async () => {
+      const res = await userApi.getUser();
+      setItems(res)
+      setFilteredItems(res)
+      })()   
+    },[])
 
     const handleKeyPress = () => {
     
@@ -46,7 +40,7 @@ function Customers() {
         </div>   
       <CustomerList items={filteredItems}/> 
       </div>  
-    </>      
+      </>      
     );
     
   }
